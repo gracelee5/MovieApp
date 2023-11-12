@@ -7,7 +7,7 @@ import Header from './Components/Header';
 import Home from './pages/Home';
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
-
+import MovieDetail from "./pages/MovieDetail";
 function App() {
   return (
     <div className="root-wrap">
@@ -20,6 +20,8 @@ function App() {
           <Route path="/pages/Celebrity" element={<Celebrity />} />
           <Route path="/pages/LoginPage" element={<LoginPage />} />
           <Route path="*" element={<NotFound/>}/>
+          
+          <Route path="/movies/:id" element={<MovieDetail />} />
         </Routes>
         
       </BrowserRouter>

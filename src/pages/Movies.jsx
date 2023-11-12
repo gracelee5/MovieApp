@@ -1,25 +1,31 @@
+// Movies.jsx
+
 import React from 'react';
 import Movie from '../Components/Movie';
 import { movies } from '../movieDummy';
+import { Link } from 'react-router-dom';
+import * as styles from './Movies.style'; // 스타일 import
+
 const pageStyle = {
-    marginTop: '100px', // 헤더의 높이에 맞춰 조절 (헤더 높이에 따라 값 조절 필요)
-    padding: '20px', // 페이지 컨텐츠와 헤더 사이 여백
+  marginTop: '100px',
+  padding: '20px',
 };
+
 const Movies = () => {
   return (
-    <div style={pageStyle}>
+    <div style={{ ...pageStyle, ...styles.movieContainer }}>
       {movies.results.map((item) => (
-        <Movie
-          key={item.id}
-          title={item.title}
-          posterPath={item.poster_path}
-          voteAverage={item.vote_average}
-          overview={item.overview}
-        />
+        <Link to={`/movies/${item.id}`} key={item.id} style={styles.movieCard}>
+          <Movie
+            title={item.title}
+            posterPath={item.poster_path}
+            voteAverage={item.vote_average}
+            overview={item.overview}
+          />
+        </Link>
       ))}
     </div>
   );
 };
 
 export default Movies;
-

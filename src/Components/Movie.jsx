@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { MovieContainer, Overlay, Content } from './Movie.style';
 
